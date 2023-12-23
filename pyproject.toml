@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "cirq-py"
+version = "0.1.0"
+description = "Cirq-Py is a minimal web developement Framework to make quick project with a CLI to auto generates files based on a MVC Model."
+authors = ["Maxime Auger <57549953+quckslvr@users.noreply.github.com>"]
+readme = "README.md"
+packages = [{ include = "cirq"}]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+click = "^8.1.7"
+pytest = "^7.4.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+cirq = "cirq:__main__.cirq"

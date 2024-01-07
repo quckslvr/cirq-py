@@ -10,6 +10,7 @@ packages = [{ include = "cirq"}]
 python = "^3.12"
 click = "^8.1.7"
 pytest = "^7.4.3"
+coverage = "^7.4.0"
 
 [build-system]
 requires = ["poetry-core"]
@@ -17,3 +18,11 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
 cirq = "cirq:__main__.cirq"
+
+[tool.stew.ci]
+mypy = false
+pytest = true
+black = true
+poetry-check = true
+check-outdated = true
+offline-build = false

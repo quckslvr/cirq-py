@@ -26,12 +26,12 @@ def {controller_function}():
 @cirq.command()
 @click.argument("name", required=True)
 @click.pass_obj
-def generate(repo, name=str):
+def generate(ctx_obj, name=str) -> None:
     """Generate the controller, model, and view files for a new component."""
 
     # Project root directory
     # todo find a way to have a state project file to found the workspace
-    project_root = repo.home
+    project_root = ctx_obj.repo_path
 
     # Directories for controllers, models, routes, and views
 
@@ -42,7 +42,7 @@ def generate(repo, name=str):
 
     # Create directories if they don't exist
     for directory in [controller_dir, model_dir, route_dir, view_dir]:
-        if repo.dryrun:
+        if ctx_obj.dryrun:
             click.echo("Would create directory: {}".format(directory))
             return
         os.makedirs(directory, exist_ok=True)
@@ -74,6 +74,6 @@ def generate(repo, name=str):
         return "Hello from the {view_function} view!"
     """
 
-    generate_file(view_dir, f"{name}_view.py", view_content)
+    generate_file(view_dir, f"{name}_view", view_content)
 
     click.echo("Files generated successfully.")

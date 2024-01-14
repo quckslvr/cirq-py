@@ -1,4 +1,4 @@
-# from cirq.commands.init import init
+from cirq.commands.new import new
 from cirq.commands.generate import generate
 
 # from cirq.commands.destroy import destroy

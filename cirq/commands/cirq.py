@@ -10,6 +10,7 @@ class Cirq(object):
     def __init__(self, dryrun=False, verbose=False):
         self.dryrun: bool = dryrun
         self.verbose: bool = verbose
+        self.new_project: bool = False
 
         self.current_dir: str = os.getcwd()
         self.repo_path: str = self.retrieve_repo()
